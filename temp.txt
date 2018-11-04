@@ -1,0 +1,107 @@
+#page  vector entries having links from 3 to
+#next page is at index 2
+#page 2 vector entries having links from 5 to 84
+#rest index contains useless links
+
+# a = grep(<a href=.*>.*\\d+.*</.*/a>, textfile, value = TRUE)
+#b = regexpr(href=.*>.*\\d+.*</.*/a>, a[3]) use this to find the subtring
+#92 char length for the links to the Papers
+#str_replace_all(variable, &amp;, &)
+#substr(a[3], 538, 630) use this to find the pattern
+
+Required Start Indexes in from page 1
+ index: 3 is  538
+ index: 4 is  538
+ index: 5 is  538
+ index: 6 is  538
+ index: 7 is  496
+ index: 8 is  496
+ index: 9 is  537
+ index: 10 is  537
+ index: 11 is  617
+
+Required Start Indexes in from page 2
+ index: 5 is  518
+ index: 6 is  515
+ index: 7 is  520
+ index: 8 is  518
+ index: 9 is  518
+ index: 10 is  526
+ index: 11 is  526
+ index: 12 is  526
+ index: 13 is  526
+ index: 14 is  518
+ index: 15 is  524
+ index: 16 is  524
+ index: 17 is  524
+ index: 18 is  520
+ index: 19 is  520
+ index: 20 is  520
+ index: 21 is  520
+ index: 22 is  518
+ index: 23 is  524
+ index: 24 is  524
+ index: 25 is  521
+ index: 26 is  524
+ index: 27 is  515
+ index: 28 is  526
+ index: 29 is  526
+ index: 30 is  523
+ index: 31 is  524
+ index: 32 is  526
+ index: 33 is  526
+ index: 34 is  524
+ index: 35 is  526
+ index: 36 is  518
+ index: 37 is  515
+ index: 38 is  524
+ index: 39 is  524
+ index: 40 is  524
+ index: 41 is  518
+ index: 42 is  -1
+ index: 43 is  520
+ index: 44 is  520
+ index: 45 is  526
+ index: 46 is  526
+ index: 47 is  526
+ index: 48 is  526
+ index: 49 is  527
+ index: 50 is  527
+ index: 51 is  527
+ index: 52 is  527
+ index: 53 is  527
+ index: 54 is  519
+ index: 55 is  525
+ index: 56 is  525
+ index: 57 is  525
+ index: 58 is  519
+ index: 59 is  525
+ index: 60 is  527
+ index: 61 is  519
+ index: 62 is  525
+ index: 63 is  525
+ index: 64 is  525
+ index: 65 is  527
+ index: 66 is  518
+ index: 67 is  515
+ index: 68 is  518
+ index: 69 is  526
+ index: 70 is  524
+ index: 71 is  526
+ index: 72 is  526
+ index: 73 is  523
+ index: 74 is  526
+ index: 75 is  526
+ index: 76 is  530
+ index: 77 is  806
+ index: 78 is  485
+ index: 79 is  572
+ index: 80 is  523
+ index: 81 is  570
+ index: 82 is  532
+ index: 83 is  570
+ index: 84 is  541
+
+
+ http://www.scielo.br/scielo.php?script=sci_arttext&pid=S1415-47572017000100001&lng=pt&nrm=iso&tlng=en
+ (www.)scielo.*&tlng=en
