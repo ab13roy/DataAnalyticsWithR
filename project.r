@@ -1,5 +1,3 @@
-#CS636 Project 1 by Group 2(Abhishek, Ankit, Sneha)
-
 #Required Libraries
 library(bitops)
 library(RCurl)
