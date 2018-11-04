@@ -105,3 +105,89 @@ Required Start Indexes in from page 2
 
  http://www.scielo.br/scielo.php?script=sci_arttext&pid=S1415-47572017000100001&lng=pt&nrm=iso&tlng=en
  (www.)scielo.*&tlng=en
+
+regex for doi
+meta xmlns="" name="citation_doi
+"meta.*name.*citation\\_doi"
+d = "\\d+.*\\d"
+str_extract(z, d)
+
+
+regex for date
+meta xmlns="" name="citation_date"
+"meta.*name.*citation\\_date"
+\\d+.*\\d+
+
+
+regex for title
+meta xmlns="" name="citation_title
+meta xmlns="" name="citation_journal_title
+div><p class="title"
+div.*class.*title
+"\\>\\w+.*\\<"
+
+
+regex for authors
+meta xmlns="" name="citation_author" content=
+p class="author"><span class="author-name
+p.*class.*author.*author\\-name
+\\>\\w+.*\\<\\/span\\>
+
+
+regex for author affiliations
+meta xmlns="" name="citation_author_institution
+p class="aff"><a name="aff1"></a><sup><sup>1</sup></sup
+p.*class.*aff.*name.*aff.*
+\\>[A-z]+.*\\<\\/p\\>
+
+
+regex for abstract (its a link extract from it only for 1)
+div id="article-body" class="body"
+div.*class\\=\"body
+meta xmlns="" name="citation_abstract_html_url
+div class="abstract"
+p class="sec"><a name="Abstract"
+div\\sclass\\=\\"abstract\\"
+div.*class.*abstract
+p.*name.*Abstract
+d = grep(s, a)
+d = d + 1
+a[d]
+str_replace_all(a[269], "<\\w>", "")
+str_replace_all(a[269], "<\\/\\w>", "")
+
+regex for fulltext (its a link extract from it only for 1)
+|meta xmlns="" name="citation_fulltext_html_url
+|meta.*citation\\_fulltext\\_html\\_url
+|http.*en
+|str_extract(d, http.*en)
+|str_replace_all(d, "&amp;", "&")
+|div id="article-body" class="body"
+|div.*class\\=\"body
+readLines()
+
+regex for keywords
+<p><b>Keywords: </b
+\\<p.*Keywords
+\\>\\w.*\\<\\/p\\>
+str_extract_all(a[270], s)
+
+regex for corresponding author
+<div class="author-notes"><p class="corresp"><a name="c1"></a>Send correspondence to
+div.*Send\\scorrespondence\\sto
+Send.*E-mail
+
+
+
+regex for corresponding author email
+E-mail: <a href="mailto:
+E\\-mail.*mailto
+\\w+\\@\\w+.\\w.*
+str_replace(d, "\\w.*\"\\>", "")
+str_replace(d, "\\<\\/a\\>", "")
+
+
+
+
+write.table(x, file="", append = FALSE, quote = 7, sep = "\t", eol = "\n", na = "NA", dec = ".", row.names = TRUE, col.names=c("Status", "Chromosome", "Start", "End", "Average KC score", "Mode KC score", "Probes"), qmethod = c("escape", "double"))
+write.table(x, file="", append = FALSE, quote = F, sep = "\t", eol = "\n", na = "NA", dec = ".", row.names = TRUE, col.names=c("DOI", "TITLE", "AUTHOR", "AUTHOR AFFILIATIONS", "CORRESPONDING AUTHOR", "CORRESPONDING AUTHOR EMAIL", "PUBLISH DATE", "ABSTRACT", "KEYWORDS", "FULLTEXT"), qmethod = c("escape", "double"))
